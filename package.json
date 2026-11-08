@@ -1,0 +1,40 @@
+{
+	"name": "@wui-js/data",
+	"version": "0.1.0",
+	"license": "Apache-2.0",
+	"author": "Sergio E. Belmar V. <wuijs.project@gmail.com>",
+	"description": "WUI/JS Data Lib - Open-source JavaScript library of reference datasets (countries, time zones) loaded on demand from versioned JSON files.",
+	"keywords": [
+		"ui",
+		"data",
+		"countries",
+		"timezone",
+		"iso3166",
+		"tzdb",
+		"vanilla",
+		"javascript",
+		"wui",
+		"frontend",
+		"library"
+	],
+	"homepage": "https://wuijs.dev",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wui-js/wuijs-data-lib.git"
+	},
+	"bugs": {
+		"url": "https://github.com/wui-js/wuijs-data-lib/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"countries/",
+		"timezone/"
+	],
+	"scripts": {
+		"prepare": "test -d .git && exit 0 || (rm -f README.md && cp NPM.md README.md && cp -r src/wui-js/data/. .)",
+		"prepack": "rm README.md && cp NPM.md README.md && cp -r src/wui-js/data/. .",
+		"postpack": "rm -f README.md && ln -s docs/README-en.md README.md && ls src/wui-js/data/ | grep -vE '^LICENSE$' | xargs rm -rf"
+	}
+}
